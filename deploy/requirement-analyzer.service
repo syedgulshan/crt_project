@@ -1,0 +1,22 @@
+[Unit]
+Description=Requirement Conflict & Overlap Analyzer Service
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/var/www/requirement-analyzer
+ExecStart=/usr/bin/npx tsx server/src/index.ts
+Restart=always
+RestartSec=5
+Environment=NODE_ENV=production
+Environment=PORT=5000
+Environment=DATABASE_PATH=/var/www/requirement-analyzer/data/analyzer.db
+
+# Security sandboxing
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=requirement-analyzer
+
+[Install]
+WantedBy=multi-user.target

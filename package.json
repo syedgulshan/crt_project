@@ -1,0 +1,47 @@
+{
+  "name": "requirement-conflict-analyzer",
+  "version": "1.0.0",
+  "description": "AI-Powered Requirement Conflict & Overlap Analyzer for SRS, BRD, and FRD documents",
+  "type": "module",
+  "main": "server/src/index.ts",
+  "scripts": {
+    "server": "tsx watch server/src/index.ts",
+    "client": "npm --prefix client run dev",
+    "build:client": "npm --prefix client run build",
+    "build:server": "tsc -p server/tsconfig.json",
+    "build": "npm --prefix client run build && tsc -p server/tsconfig.json",
+    "start": "tsx server/src/index.ts",
+    "test:db": "tsx -e \"import('./server/src/config/database.ts').then(m => { m.initDatabase(); console.log('Database initialized successfully'); })\""
+  },
+  "keywords": [
+    "requirements",
+    "conflict-detection",
+    "semantic-analysis",
+    "srs",
+    "brd",
+    "traceability",
+    "nlp"
+  ],
+  "author": "Enterprise Engineering Team",
+  "license": "ISC",
+  "dependencies": {
+    "better-sqlite3": "^13.0.3",
+    "cors": "^2.8.5",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "mammoth": "^1.11.0",
+    "multer": "^2.0.2",
+    "pdf-parse": "^1.1.4",
+    "tsx": "^4.21.0",
+    "uuid": "^13.0.0"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/multer": "^2.0.0",
+    "@types/node": "^24.10.1",
+    "@types/uuid": "^10.0.0",
+    "typescript": "^5.9.3"
+  }
+}

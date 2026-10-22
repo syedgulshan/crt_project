@@ -1,0 +1,23 @@
+================================================================================
+FUNCTIONAL REQUIREMENTS DOCUMENT (FRD)
+PROJECT: Enterprise Identity, Authentication & Order Management
+VERSION: 3.1
+================================================================================
+
+Section 1.0 Onboarding & Legal Consent
+FRD-105: Users must acknowledge terms of service and GDPR privacy notice prior to first account activation.
+
+Section 2.0 Privileged Security & MFA
+FRD-102: Administrative accounts must strictly require Multi-Factor Authentication (MFA) via TOTP hardware token.
+
+Section 4.0 Dashboard Presentation
+FRD-106: The frontend dashboard shall render all order statuses with visual status badges and color codes.
+
+Section 5.0 Order Modification & Windows
+FRD-101: Customers can only cancel placed orders within 2 hours of checkout submission.
+
+Section 7.0 Automation & Background Jobs
+FRD-104: System shall generate automated daily inventory synchronization events at 00:00 UTC.
+
+Section 8.0 Microservice SLA Targets
+FRD-103: The search query pipeline must return catalog search results within 200 milliseconds under 95th percentile load.

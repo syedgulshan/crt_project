@@ -1,0 +1,31 @@
+================================================================================
+SOFTWARE REQUIREMENTS SPECIFICATION (SRS)
+PROJECT: Enterprise Omnichannel E-Commerce System
+VERSION: 2.4 | STATUS: APPROVED
+================================================================================
+
+Section 1.0 Introduction
+This specification defines the functional, security, and interface behaviors of the
+enterprise e-commerce transaction and account management platform.
+
+Section 2.0 Architectural Assumptions & Viewports
+SRS-008: The application UI should adopt a responsive layout optimized for mobile, tablet, and desktop viewports.
+
+Section 3.0 User Account & Profile Operations
+SRS-004: Users can update their email address in their personal profile settings page.
+SRS-009: Users must receive an email verification link when changing their contact preferences.
+
+Section 4.0 Authentication, Session & Credential Security
+SRS-001: Users must be automatically logged out after 15 minutes of inactivity to protect session integrity.
+SRS-002: Users must be able to reset their password using their registered email through an automated one-time link.
+SRS-010: The system shall enforce a minimum password length of 12 characters including uppercase, lowercase, numbers, and symbols.
+
+Section 6.0 Order Placement & Cancellation
+SRS-003: Customer can cancel an order before shipment directly from their account order history dashboard.
+SRS-007: The checkout system shall process credit card payments via PCI-DSS compliant third-party gateways.
+
+Section 8.0 Data Protection & Encryption
+SRS-005: All user data stored in persistent relational databases must be encrypted at rest using AES-256 standards.
+
+Section 9.0 Performance Metrics
+SRS-006: The search response time should be fast and seamless under high user concurrency load.
