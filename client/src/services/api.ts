@@ -7,6 +7,7 @@ import {
   DashboardStats 
 } from '../types/index.js';
 
+const API_BASE = (import.meta.env.VITE_API_BASE_URL || '/api').replace(/\/$/, '');
 let authToken: string | null = localStorage.getItem('auth_token');
 
 export function setAuthToken(token: string | null) {
@@ -32,7 +33,8 @@ async function request<T>(endpoint: string, options: RequestInit = {}): Promise<
     headers['Content-Type'] = 'application/json';
   }
 
-  const response = await fetch(`/api${endpoint}`, {
+  const path = endpoint.startsWith('/') ? endpoint : `/${endpoint}`;
+  const response = await fetch(`${API_BASE}${path}`, {
     ...options,
     headers
   });
@@ -145,8 +147,8 @@ export const api = {
 
   reports: {
     getJson: () => request<any>('/reports/json'),
-    getMarkdownUrl: () => authToken ? `/api/reports/markdown?token=${encodeURIComponent(authToken)}` : '/api/reports/markdown',
-    getCsvUrl: () => authToken ? `/api/reports/csv?token=${encodeURIComponent(authToken)}` : '/api/reports/csv',
-    getHtmlUrl: () => authToken ? `/api/reports/html?token=${encodeURIComponent(authToken)}` : '/api/reports/html'
+    getMarkdownUrl: () => authToken ? `${API_BASE}/reports/markdown?token=${encodeURIComponent(authToken)}` : `${API_BASE}/reports/markdown`,
+    getCsvUrl: () => authToken ? `${API_BASE}/reports/csv?token=${encodeURIComponent(authToken)}` : `${API_BASE}/reports/csv`,
+    getHtmlUrl: () => authToken ? `${API_BASE}/reports/html?token=${encodeURIComponent(authToken)}` : `${API_BASE}/reports/html`
   }
 };
